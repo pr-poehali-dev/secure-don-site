@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -8,6 +9,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import Icon from '@/components/ui/icon';
 
 const Index = () => {
+  const navigate = useNavigate();
   const [selectedCreator, setSelectedCreator] = useState<string | null>(null);
   const [donateAmount, setDonateAmount] = useState('');
   const [donateMessage, setDonateMessage] = useState('');
@@ -93,6 +95,13 @@ const Index = () => {
               Без комиссии
             </Badge>
           </div>
+          <Button 
+            className="mt-8 h-14 px-8 text-lg font-bold gradient-purple-pink text-white border-0 hover:scale-105 transition-transform animate-pulse-slow"
+            onClick={() => navigate('/create-stream')}
+          >
+            <Icon name="Video" className="mr-2" size={24} />
+            Стать стримером
+          </Button>
         </div>
 
         <Tabs defaultValue="creators" className="max-w-7xl mx-auto">
